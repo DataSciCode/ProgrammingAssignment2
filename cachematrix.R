@@ -21,12 +21,12 @@ makeCacheMatrix <- function(m = matrix()) {
 ## retrieves the inverse from the cache.
 cacheSolve <- function(m, ...) {
 
-        mInv <- m$getMatInverse() ## Return a matrix that is the inverse of 'x'
+        mInv <- m$getMatInverse() ## Return a matrix that is the inverse of matrix m
         if (!is.null(mInv)) {
                 message("getting cached inverse matrix")
                 return(mInv)
         } else {
-                mInv <- solve(m$get())
+                mInv <- solve(m$get())  ## gets inverse using solve if the inverse is null
                 m$setMatInverse(mInv)
                 return(mInv)
         }
